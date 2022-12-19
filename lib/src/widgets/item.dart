@@ -31,6 +31,7 @@ class Item extends StatelessWidget {
     }
     return Container(
       child: Row(
+        textDirection: TextDirection.ltr,
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -69,13 +70,12 @@ class _Flag extends StatelessWidget {
                     Utils.generateFlagEmojiUnicode(country?.alpha2Code ?? ''),
                     style: Theme.of(context).textTheme.headline5,
                   )
-                : Image.asset(
-                    country!.flagUri,
-                    width: 32.0,
-                    package: 'intl_phone_number_input',
-                    errorBuilder: (context, error, stackTrace) {
-                      return SizedBox.shrink();
-                    },
+                : CircleAvatar(
+                    radius: 13,
+                    backgroundImage: AssetImage(
+                      country!.flagUri,
+                      package: 'intl_phone_number_input',
+                    ),
                   ),
           )
         : SizedBox.shrink();
