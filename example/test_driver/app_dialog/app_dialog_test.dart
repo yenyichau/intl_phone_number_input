@@ -17,8 +17,11 @@ main() {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        driver.close();
+      try {
+        await driver.close();
+      } catch (e) {
+        // Handle any errors during driver cleanup (including uninitialized driver)
+        print('Error closing driver: $e');
       }
     });
 
