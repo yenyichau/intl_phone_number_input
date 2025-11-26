@@ -47,6 +47,14 @@ class Item extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: textStyle,
           ),
+          Padding(
+            padding: EdgeInsetsGeometry.only(
+                left: (leadingPadding ?? 12) / 2, right: 0),
+            child: Icon(
+              Icons.arrow_drop_down,
+              size: 24,
+            ),
+          ),
         ],
       ),
     );
@@ -65,6 +73,13 @@ class _Flag extends StatelessWidget {
   Widget build(BuildContext context) {
     return country != null && showFlag!
         ? Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey[350]!,
+                width: 0.5,
+              ),
+              shape: BoxShape.circle,
+            ),
             child: useEmoji!
                 ? Text(
                     Utils.generateFlagEmojiUnicode(country?.alpha2Code ?? ''),
