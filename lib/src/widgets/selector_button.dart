@@ -93,7 +93,7 @@ class SelectorButton extends StatelessWidget {
                 leadingPadding: selectorConfig.leadingPadding,
                 trailingSpace: selectorConfig.trailingSpace,
                 textStyle: selectorTextStyle,
-                arrowEnabled: true,
+                arrowEnabled: countries.isNotEmpty && countries.length > 1,
               ),
             ),
           );
